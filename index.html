@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -12,30 +13,64 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+
+    <!-- cropper  -->
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.css" type="text/css" />
+
     <title>Card</title>
 </head>
 
 <body>
-    <!-- functionality -->
 
+    <!-- functionality -->
     <div class="add_image_box">
         <div class="add_image_tittle">
-            <h2>Add Company logo</h2>
+            <h2>Add <span id="func"></span> </h2>
             <i class="fa-solid fa-xmark fa-lg"></i>
         </div>
         <div class="add_image_body">
             <div class="add_image_body_main">
-                <div class="add_image_body_main_content">
-                    <p class="add_image_body_main_content1">Drop your image here, or <span> browse </span></p>
-                    <p class="add_image_body_main_content2">Supports JPG, JPEG, and PNG</p>
+                <div class="add_image_body_main_content" id="image-cropper">
+                    <!-- <p class="add_image_body_main_content1 uploadimgText">Drop your image here, or <span> browse </span>
+                    </p>
+                    <p class="add_image_body_main_content2 uploadimgText">Supports JPG, JPEG, and PNG</p> -->
+                </div>
+            </div>
+            <div class="image_resize_container">
+                <i class="fa-solid fa-minus fa-lg" id="img_dec" style="color: #abb5bb;"></i>
+                <label class="slider">
+                    <input type="range" step=".1" min="0.1" max="5.45" value="1" class="level" id="zoom">
+                </label>
+                <i class="fa-solid fa-plus fa-lg" id="img_inc" style="color: #abb5bb;"></i>
+            </div>
+            <div class="image_color_container">
+                <div class="image_color_container_heading">Suggested background colors</div>
+
+                <div class="image_color">
+                    <div class="image_color_left">
+                        <div class="image_color_left_box">
+                            <button style="--color: #ffffff; --outline: #555555;"></button>
+                        </div>
+                        <div class="image_color_left_box">
+                            <button style="--color: #000000; --outline: #ffffff;"></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+
+
     <section class="d-flex">
         <div class="left ">
-            <div class="card">
+            <div class="card" id="image-cropper-result">
+                <!-- <div id="image-cropper-result"><img style="width:120px; height:120px; margin: 5px;"></div> -->
                 <img src="images/cover.svg" class="card-img-top" alt="bg-img">
                 <div class="card-body pt-5 ps-4">
                     <!-- profile -->
@@ -151,9 +186,13 @@
         </div>
     </section>
 </body>
+<!-- jquery cdn -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 <script src="js/scrpt.js"></script>
+
 </html>

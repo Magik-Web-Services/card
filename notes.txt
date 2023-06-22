@@ -1,1 +1,9 @@
 https://dash.blinq.me/onboarding/customize-card?source=onboarding
+
+
+https://jsuites.net/v4/image-cropper/rotate-and-zoom
+
+https://jsfiddle.net/spreadsheet/056jtdn4/
+
+
+https://stackblitz.com/edit/cropper-js-with-slider-example?file=index.js
