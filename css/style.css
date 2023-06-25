@@ -14,6 +14,7 @@
     --neutral-300: #d5dadd;
     --neutral-700: #525f66;
     --danger-300: #f9a19f;
+    --primary-500: #f45a57;
 }
 
 section {
@@ -290,6 +291,14 @@ section {
     margin: 20px 0 10px;
 }
 
+.card_svg path{
+    fill: #fff !important; 
+}
+
+.svg_none path{
+    fill: silver !important; 
+}
+
 .flex_wrap {
     display: flex;
     gap: 20px;
@@ -299,7 +308,14 @@ section {
     color: var(--neutral-800);
     padding: 6px 12px;
     font-size: 14px;
+    cursor: pointer;
 }
+
+.box_none{
+    cursor: not-allowed !important;
+    background-color: silver;
+}
+
 .flex_wrap .flex_item i {
     margin: 15px 0 15px 3px;
 }
@@ -504,9 +520,41 @@ display: none;
     cursor: inherit;
 }
 
-#uploadimg,
-.uploadimgText {
+.uploadimgText{
+    /* display: none; */
+}
+
+.uploadimg {
     display: none;
+    border: 2px solid red;
+    /* position: absolute; */
+    top: -23px;
+    left: -15px;
+    width: 100%;
+    height: 100%;
+}
+
+.uploadimgText:first-child{
+    margin-bottom: 25px;
+}
+
+#image-cropper{
+    position: relative;
+}
+
+#fileupload{
+    border: 1px solid red;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.uploadimgText span{
+    color: var(--primary-500);
 }
 
 .add_image_active {
