@@ -35,6 +35,28 @@ section {
     z-index: 1;
     margin: 16% auto;
 }
+
+#sm_con {
+    position: relative;
+}
+
+.social_media_con {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.social_media_con:hover i  {
+    opacity: 1;
+}
+
+.card_edit {
+    position: absolute;
+    right: 50px;
+    color: #f45a57;
+    opacity: 0;
+}
+
 .left .card .card-body {
     box-shadow: 0 5px 15px 0 rgba(49, 49, 93, 0.13), 0 15px 35px 0 rgba(49, 49, 93, 0.1);
     border-top-left-radius: 12px;
@@ -82,7 +104,7 @@ section {
 
 .left .card .card-body .card_profile .img2 {
     position: absolute;
-    top: -11%;
+    top: -2.5vw;
     border: 4px solid white;
     border-radius: 10px;
     right: 1em;
@@ -291,12 +313,12 @@ section {
     margin: 20px 0 10px;
 }
 
-.card_svg path{
-    fill: #fff !important; 
+.card_svg path {
+    fill: #fff !important;
 }
 
-.svg_none path{
-    fill: silver !important; 
+.svg_none path {
+    fill: silver !important;
 }
 
 .flex_wrap {
@@ -311,7 +333,7 @@ section {
     cursor: pointer;
 }
 
-.box_none{
+.box_none {
     cursor: not-allowed !important;
     background-color: silver;
 }
@@ -332,8 +354,8 @@ section {
 }
 
 .modal1val,
-.modal2val{
-display: none;
+.modal2val {
+    display: none;
 }
 .btn_container {
     display: flex;
@@ -520,7 +542,7 @@ display: none;
     cursor: inherit;
 }
 
-.uploadimgText{
+.uploadimgText {
     /* display: none; */
 }
 
@@ -534,15 +556,15 @@ display: none;
     height: 100%;
 }
 
-.uploadimgText:first-child{
+.uploadimgText:first-child {
     margin-bottom: 25px;
 }
 
-#image-cropper{
+#image-cropper {
     position: relative;
 }
 
-#fileupload{
+#fileupload {
     border: 1px solid red;
     position: absolute;
     left: 0px;
@@ -553,7 +575,7 @@ display: none;
     cursor: pointer;
 }
 
-.uploadimgText span{
+.uploadimgText span {
     color: var(--primary-500);
 }
 
