@@ -149,12 +149,9 @@ jQuery(document).ready(function () {
                         let val1hidden = jQuery('input[data-val1hidden="' + label1id + '"]').val()
 
                         if (val1hidden == '') {
-                            // console.log("this");
-                            // jQuery(".card_accreditations li").addClass('field_card_none')
-                            console.log(jQuery("#" + label1id).parent().parent().addClass("field_card_none"))
+                            jQuery("#" + label1id).parent().parent().addClass("field_card_none")
                         }
 
-                        console.log(val1hidden);
                         jQuery(".modal1val .modal1lab input").val(val1hidden);
 
                         jQuery("#" + label1id).text(val1hidden)
@@ -173,11 +170,9 @@ jQuery(document).ready(function () {
                 let card_text1lab = jQuery("#" + card_text1).text()
                 let card_text2lab = jQuery("#" + card_text2).text()
 
-                let card_text1val = jQuery(".modal3val .modal1lab input").val(card_text1lab);
-                let card_text2val = jQuery(".modal3val .modal2lab input").val(card_text2lab);
+                jQuery(".modal3val .modal1lab input").val(card_text1lab);
+                jQuery(".modal3val .modal2lab input").val(card_text2lab);
 
-                localStorage.setItem(card_text1, card_text1lab)
-                localStorage.setItem(card_text2, card_text2lab)
 
                 jQuery(".modal3val .modal1lab input").data('id', card_text1)
                 jQuery(".modal3val .modal2lab input").data('id', card_text2)
@@ -191,16 +186,21 @@ jQuery(document).ready(function () {
                 let card_text1lab = jQuery("#" + card_text1).text()
                 let card_text2lab = jQuery("#" + card_text2).text()
 
-                let card_text1val = jQuery(".modal2val .modal1lab input").val(card_text1lab);
+                jQuery(".modal1val .modal1lab input").val(card_text1lab);
 
-                let card_text21val = jQuery(".modal2val .modal1lab input").val(card_text1lab);
-                let card_text22val = jQuery(".modal2val .modal2lab input").val(card_text2lab);
+                jQuery(".modal2val .modal1lab input").val(card_text1lab);
+                jQuery(".modal2val .modal2lab input").val(card_text2lab);
+                // 
+                // jQuery(".modal1val .modal1lab label").text(label1);
 
-                localStorage.setItem(card_text1, card_text1lab)
-                localStorage.setItem(card_text2, card_text2lab)
+                // jQuery(".modal2val .modal1lab label").text(label1);
+                // jQuery(".modal2val .modal2lab label").text(label2);
 
-                jQuery(".modal3val .modal1lab input").data('id', card_text1)
-                jQuery(".modal3val .modal2lab input").data('id', card_text2)
+                // 
+                jQuery(".modal1val .modal1lab input").data('id', card_text1)
+
+                jQuery(".modal2val .modal1lab input").data('id', card_text1)
+                jQuery(".modal2val .modal2lab input").data('id', card_text2)
 
             })
         });
