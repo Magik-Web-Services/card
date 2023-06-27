@@ -3,8 +3,7 @@
 
 jQuery(document).ready(function () {
     localStorage.clear();
-    jQuery(document).on('click', '.card_fill ', function () {
-        // $('body').removeClass('modal-open');
+    jQuery(document).on('click', '.card_fill', function () {
 
         const id = jQuery(this).data('id');
         const modal = jQuery(this).data('modal')
@@ -28,8 +27,14 @@ jQuery(document).ready(function () {
                 box.removeAttr("data-bs-toggle")
                 text.css("color", "silver")
                 jQuery("." + id).removeClass("card_fill")
+                jQuery("." + id).addClass("card_fill2")
 
-                
+                // save
+                let text1 = jQuery("#" + label1id).text()
+                let text2 = jQuery("#" + label2id).text()
+
+                let save1 = jQuery('input[data-val1hidden="' + label1id + '"]').val(text1)
+                let save2 = jQuery('input[data-val2hidden="' + label2id + '"]').val(text2)
             }
         })
 
@@ -54,10 +59,15 @@ jQuery(document).ready(function () {
                         let lab1id1 = jQuery(".modal2val .modal1lab input").data('id')
                         let lab2id2 = jQuery(".modal2val .modal2lab input").data('id')
 
-                        jQuery('#' + lab1id1).val(localStorage.setItem(lab1id1, ""));
-                        jQuery('#' + lab2id2).val(localStorage.setItem(lab2id2, ""));
-                        jQuery("#" + lab1id1).text("")
-                        jQuery("#" + lab2id2).text("")
+
+                        let val1hidden = jQuery('input[data-val1hidden="' + label1id + '"]').val()
+                        let val2hidden = jQuery('input[data-val2hidden="' + label2id + '"]').val()
+
+                        jQuery(".modal2val .modal1lab input").val(val1hidden);
+                        jQuery(".modal2val .modal2lab input").val(val2hidden);
+
+                        jQuery("#" + label1id).text(val1hidden)
+                        jQuery("#" + label2id).text(val2hidden)
                     })
                 } else if (modal == "modal3val") {
                     jQuery(".modal3val .modal1lab input").data('id', label1id)
@@ -85,12 +95,10 @@ jQuery(document).ready(function () {
                                 </svg>
                             </span>
                             <span class="social_media_para_con ms-3">
-                                <div class="social_media_para card_text1 fs-7 fw-bold lh-2" id="${label1id}"> 
-                                    <input type="hidden" id="${label1id}_inp">
-                                </div>
-                                <div class="social_media_para card_text2 fs-7 lh-1 fw-lighter" id="${label2id}">
-                                    <input type="hidden" id="${label2id}_inp">
-                                </div>
+                                <div class="social_media_para card_text1 fs-7 fw-bold lh-2" id="${label1id}"> </div>
+                                <input type="hidden" data-val1hidden="${label1id}">
+                                <div class="social_media_para card_text2 fs-7 lh-1 fw-lighter" id="${label2id}"></div>
+                                <input type="hidden" data-val2hidden="${label2id}">
                             </span>
                             <i class="card_edit fa-solid fa-pen-to-square"></i>
                         </div> `;
@@ -101,6 +109,20 @@ jQuery(document).ready(function () {
                     jQuery(document).on('click', c_btn, function () {
                         let labid1 = jQuery(".modal3val .modal1lab input").data('id')
                         let labid2 = jQuery(".modal3val .modal2lab input").data('id')
+
+                        // let text1 = jQuery("#" + label1id).text()
+                        // let text2 = jQuery("#" + label2id).text()
+
+                        let val1hidden = jQuery('input[data-val1hidden="' + label1id + '"]').val()
+                        let val2hidden = jQuery('input[data-val2hidden="' + label2id + '"]').val()
+
+                        // if (text1 != val1hidden || text2 != val2hidden) {
+                        jQuery("#" + label1id).text(val1hidden)
+                        jQuery("#" + label2id).text(val2hidden)
+                        // }
+
+
+                        // let save1 = jQuery('input[data-val1hidden="' + label1id + '"]').val(text1)
 
                         jQuery('#' + id).hide()
 
@@ -113,16 +135,29 @@ jQuery(document).ready(function () {
                     })
 
                 } else {
-
                     jQuery(".modal1val .modal1lab input").data('id', label1id)
                     jQuery(".modal1val .modal1lab input").val(localStorage.getItem(label1id));
                     jQuery(".modal1val .modal1lab label").text(label1)
 
+
                     jQuery(document).on('click', c_btn, function () {
                         let lab01id = jQuery(".modal1val .modal1lab input").data('id')
-                        localStorage.setItem(lab01id, "")
                         jQuery('#' + lab01id).val("");
                         jQuery("#" + lab01id).text("")
+                        jQuery("#" + id).parent().parent().removeClass("card_text")
+
+                        let val1hidden = jQuery('input[data-val1hidden="' + label1id + '"]').val()
+
+                        if (val1hidden == '') {
+                            // console.log("this");
+                            // jQuery(".card_accreditations li").addClass('field_card_none')
+                            console.log(jQuery("#" + label1id).parent().parent().addClass("field_card_none"))
+                        }
+
+                        console.log(val1hidden);
+                        jQuery(".modal1val .modal1lab input").val(val1hidden);
+
+                        jQuery("#" + label1id).text(val1hidden)
                     })
                 }
             }
@@ -130,7 +165,6 @@ jQuery(document).ready(function () {
                 jQuery(this).css("display", "none");
             }
 
-            // jQuery(".social_media_con").click(function () {
             jQuery(document).on('click', '.social_media_con', function () {
                 let id = jQuery(this).data("cardid");
                 let card_text1 = $('div[data-cardid="' + id + '"] .social_media_para_con .card_text1').attr('id')
@@ -149,7 +183,26 @@ jQuery(document).ready(function () {
                 jQuery(".modal3val .modal2lab input").data('id', card_text2)
 
             })
-            // })
+            jQuery(document).on('click', '.card_fill2', function () {
+                let id = jQuery(this).data("cardid");
+                let card_text1 = $('div[data-cardid="' + id + '"] .card-title .card_text1').attr('id')
+                let card_text2 = $('div[data-cardid="' + id + '"] .card-title .card_text2').attr('id')
+
+                let card_text1lab = jQuery("#" + card_text1).text()
+                let card_text2lab = jQuery("#" + card_text2).text()
+
+                let card_text1val = jQuery(".modal2val .modal1lab input").val(card_text1lab);
+
+                let card_text21val = jQuery(".modal2val .modal1lab input").val(card_text1lab);
+                let card_text22val = jQuery(".modal2val .modal2lab input").val(card_text2lab);
+
+                localStorage.setItem(card_text1, card_text1lab)
+                localStorage.setItem(card_text2, card_text2lab)
+
+                jQuery(".modal3val .modal1lab input").data('id', card_text1)
+                jQuery(".modal3val .modal2lab input").data('id', card_text2)
+
+            })
         });
 
     });
@@ -181,6 +234,11 @@ jQuery(document).ready(function () {
                 jQuery(this).removeClass('field_card_none')
                 jQuery(this).text(value);
                 localStorage.setItem(id, value);
+
+                jQuery("#" + id).parent().parent().addClass("card_text")
+                if (value == "") {
+                    jQuery("#" + id).parent().parent().removeClass("card_text")
+                }
             }
         });
         jQuery(".social_media_para").each(function () {
@@ -189,6 +247,8 @@ jQuery(document).ready(function () {
                 localStorage.setItem(id, value);
             }
         });
+
+
 
         // if(field.val() === ''){
         // field.parent().addClass('brdr_red').removeClass('brdr_green');

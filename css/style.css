@@ -44,15 +44,36 @@ section {
     display: flex;
     align-items: center;
     cursor: pointer;
+    padding: 7px;
+    border-radius: 10px;
 }
 
-.social_media_con:hover i  {
+.card_text {
+    display: flex;
+    align-items: center;
+    /* border: 1px solid red; */
+    border-radius: 10px;
+}
+
+.card_text h5,
+.card_text h6 {
+    padding: 0 10px;
+    width: 100%;
+}
+
+.social_media_con:hover,
+.card_text:hover {
+    border: 1px solid #f67875;
+}
+
+.social_media_con:hover i,
+.card_text:hover i {
     opacity: 1;
 }
 
 .card_edit {
     position: absolute;
-    right: 50px;
+    right: 25px;
     color: #f45a57;
     opacity: 0;
 }
@@ -73,8 +94,8 @@ section {
     border-radius: 12px !important;
 }
 
-.left .card .card-body p {
-    font-size: 1rem;
+.left .card .card-body .card_fill2 .Spara span {
+    font-size: 0.8rem;
     line-height: 1.4;
     color: var(--neutral-700);
     white-space: pre-wrap;
@@ -453,7 +474,7 @@ section {
 
 .card_accreditations {
     list-style: none;
-    padding-top: 0.25rem;
+    padding-top: 15px;
     padding-bottom: 0.25rem;
     display: inline-flex;
     flex-wrap: wrap;
