@@ -12,16 +12,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <!-- cropper  -->
-    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.css" type="text/css" />
     <title>Card</title>
 </head>
 
 <body>
 
     <!-- functionality -->
-    <div class="add_image_box">
+    <!-- <div class="add_image_box">
         <div class="add_image_tittle">
             <h2>Add <span id="func"></span></h2>
             <i class="fa-solid fa-xmark fa-lg add_image_close"></i>
@@ -29,9 +26,9 @@
         <div class="add_image_body">
             <div class="add_image_body_main">
                 <div class="add_image_body_main_content" id="image-cropper">
-                    <!-- <p class="add_image_body_main_content1 uploadimgText">Drop your image here, or <span> browse </span>
+                    <p class="add_image_body_main_content1 uploadimgText">Drop your image here, or <span> browse </span>
                     </p>
-                    <p class="add_image_body_main_content2 uploadimgText">Supports JPG, JPEG, and PNG</p> -->
+                    <p class="add_image_body_main_content2 uploadimgText">Supports JPG, JPEG, and PNG</p>
                 </div>
             </div>
             <div class="image_resize_container">
@@ -70,58 +67,71 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <section class="d-flex">
         <div class="left ">
             <div class="card" id="image-cropper-result">
-                <img src="images/cover.svg" class="card-img-top" alt="bg-img">
+                <img src="images/cover.svg" id="company-img" class="card-img-top" alt="bg-img">
                 <div class="card-body pt-5 ps-4">
                     <!-- profile -->
                     <div class="card_profile">
-                        <img class="img" alt="Profile" src="images/profile.svg">
-                        <img class="img2" alt="park realty" src="images/logo.png">
+                        <img class="img" id="profile-img" alt="Profile" src="images/profile.svg">
+                        <img class="img2"id='cover-img' alt="park realty" src="images/logo.png">
                     </div>
                     <!--  -->
-                    <div class="card_fill2" data-modal="modal2val" data-cardid="name" data-label1id="firstname" data-label2id="lastname"
-                        data-bs-toggle="modal" data-editid="name" data-bs-target="#fildetail">
-                        <h5 class="card-title fs-2"><span class="field_card field_card_none card_text1" id="firstname"></span>
-                            <span class="field_card field_card_none card_text2" id="lastname"></span>
+                    <div class="card_fill" data-modal="modal2val" data-cardid="name" data-label1id="firstname"
+                        data-label2id="lastname" data-bs-toggle="modal" data-editid="name" data-bs-target="#fildetail">
+                        <h5 class="card-title fs-2"><span class="field_card field_card_none card_text1"
+                                data-label="First Name" id="firstname"></span>
+                            <span class="field_card field_card_none card_text2" data-label="Last Name"
+                                id="lastname"></span>
                             <input type="hidden" data-val1hidden="firstname">
                             <input type="hidden" data-val2hidden="lastname">
                         </h5>
                         <i class="card_edit fa-solid fa-pen-to-square"></i>
                     </div>
                     <!--  -->
-                    <div class="card_fill2" data-modal="modal1val" data-cardid="Jobtitle" data-bs-toggle="modal" data-bs-target="#fildetail">
-                        <h6 class="card-title fs-4"><span class="field_card field_card_none card_text1" id="j_title"></span></h6>
+                    <div class="card_fill" data-modal="modal1val" data-cardid="Jobtitle" data-label1id="j_title"
+                        data-bs-toggle="modal" data-bs-target="#fildetail">
+                        <h6 class="card-title fs-4"><span class="field_card field_card_none card_text1"
+                                data-label="Job title" id="j_title"></span></h6>
+                        <input type="hidden" data-val1hidden="j_title">
                         <i class="card_edit fa-solid fa-pen-to-square"></i>
                     </div>
                     <!--  -->
-                    <div class="card_fill2" data-modal="modal1val"  data-cardid="Department" data-bs-toggle="modal" data-bs-target="#fildetail">
-                        <h6 class="card-title fs-4"><span class="field_card field_card_none card_text1" id="department"></span>
+                    <div class="card_fill" data-modal="modal1val" data-cardid="Department" data-label1id="department"
+                        data-bs-toggle="modal" data-bs-target="#fildetail">
+                        <h6 class="card-title fs-4"><span class="field_card field_card_none card_text1"
+                                data-label="Department" id="department"></span>
                         </h6>
-                        <input type="hidden" data-val1hidden="department">
+                        <input type="hidden" data-label1="Department" data-val1hidden="department">
                         <i class="card_edit fa-solid fa-pen-to-square"></i>
                     </div>
                     <!--  -->
-                    <div class="card_fill2" data-modal="modal1val" data-cardid="CompanyName" data-bs-toggle="modal" data-bs-target="#fildetail">
-                        <h6 class="card-title fs-4"><span class="field_card field_card_none card_text1" id="company"></span></h6>
+                    <div class="card_fill" data-modal="modal1val" data-cardid="CompanyName" data-label1id="company"
+                        data-bs-toggle="modal" data-bs-target="#fildetail">
+                        <h6 class="card-title fs-4"><span class="field_card field_card_none card_text1"
+                                data-label="Company name" id="company"></span></h6>
                         <input type="hidden" data-val1hidden="company">
                         <i class="card_edit fa-solid fa-pen-to-square"></i>
                     </div>
                     <!--  -->
-                    <div class="" data-modal="modal1val" data-bs-toggle="modal" data-cardid="Accreditations" data-bs-target="#fildetail">
+                    <div class="card_fill" data-modal="modal1val" data-bs-toggle="modal" data-label1id="accreditations"
+                        data-cardid="Accreditations" data-bs-target="#fildetail">
                         <ul class="card-title card_accreditations">
-                            <li class="field_card field_card_none card_text1" id="accreditations"></li>
+                            <li class="field_card field_card_none card_text1" data-label="Accreditations"
+                                id="accreditations"></li>
                         </ul>
                         <input type="hidden" data-val1hidden="accreditations">
                         <i class="card_edit fa-solid fa-pen-to-square"></i>
                     </div>
                     <!--  -->
-                    <div class="card_fill2" data-modal="modal1val" data-cardid="Headline" data-bs-toggle="modal" data-bs-target="#fildetail">
-                        <h6 class="card-title fs-6 Spara"><span class="field_card field_card_none" id="headline"></span></h6>
+                    <div class="card_fill" data-modal="modal1val" data-cardid="Headline" data-label1id="headline"
+                        data-bs-toggle="modal" data-bs-target="#fildetail">
+                        <h6 class="card-title fs-6 Spara"><span class="field_card field_card_none card_text1"
+                                data-label="Headline" id="headline"></span></h6>
                         <!-- <p class="field_card field_card_none" id="headline"></p> -->
                         <input type="hidden" data-val1hidden="headline">
                         <i class="card_edit fa-solid fa-pen-to-square"></i>
@@ -167,20 +177,42 @@
             <div class="right_images_box_container">
                 <div class="image_box">
                     <div class="image_box_inner">
-                        <i class="fa-solid fa-plus fa-xs" style="color: #9c9fa3;"></i>
-                        <div>Company Logo</div>
+                        <i class=" img-text fa-solid fa-plus fa-xs" style="color: #9c9fa3;"></i>
+                        <div class="img-text">Company Logo</div>
+
+                        <div class="img-logo1">
+                            <img id="uploadlogo" class="img-con" src="assets/images/logo-img.png" height="148" alt="your image"
+                                class="float-end" />
+                            <input type="file" name="logo" class="form-control roundcorner" id="logo"
+                                onchange="readURL(this);">
+                        </div>
                     </div>
                 </div>
+
                 <div class="image_box">
                     <div class="image_box_inner">
                         <i class="fa-solid fa-plus fa-xs" style="color: #9c9fa3;"></i>
                         <div>Profile Picture</div>
+
+                        <div class="img-logo1">
+                            <img id="uploadlogo2" class="img-con2" src="assets/images/logo-img.png" height="148" alt="your image"
+                                class="float-end" />
+                            <input type="file" name="logo" class="form-control roundcorner" id="logo"
+                                onchange="readURL2(this);">
+                        </div>
                     </div>
                 </div>
                 <div class="image_box">
                     <div class="image_box_inner">
                         <i class="fa-solid fa-plus fa-xs" style="color: #9c9fa3;"></i>
                         <div>Cover Photo</div>
+
+                        <div class="img-logo1">
+                            <img id="uploadlogo3" class="img-con3" src="assets/images/logo-img.png" height="148" alt="your image"
+                                class="float-end" />
+                            <input type="file" name="logo" class="form-control roundcorner" id="logo"
+                                onchange="readURL3(this);">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -594,9 +626,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
     integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- cropper -->
-<script src="https://jsuites.net/v4/jsuites.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.js"></script>
 <script src="js/script.js"></script>
 
 </html>

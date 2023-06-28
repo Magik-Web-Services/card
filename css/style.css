@@ -26,6 +26,7 @@ section {
     width: 35vw;
     background: rgba(var(--card-color), 0.25);
     padding: 3rem 0;
+    overflow-y: scroll;
 }
 .left .card {
     max-width: 440px;
@@ -118,9 +119,10 @@ section {
 
 .left .card .card-body .card_profile .img {
     position: absolute;
-    top: -3.5vw;
+    top: -35%;
     border-radius: 50%;
-    width: 6vw;
+    width: 30%;
+    height: 70%;
 }
 
 .left .card .card-body .card_profile .img2 {
@@ -307,14 +309,24 @@ section {
     flex-direction: column;
     justify-content: center;
     font-size: smaller;
+    position: relative;
     font-weight: 700;
     height: 100%;
     width: 100%;
 }
 
+.right .right_images_box_container .image_box .image_box_inner i {
+    position: absolute;
+    left: 45%;
+    top: 40%;
+}
+
 .right .right_images_box_container .image_box .image_box_inner div {
     margin-top: 9px;
     font-size: 0.9em;
+    position: absolute;
+    left: 30px;
+    top: 40%;
 }
 
 .right .Add_details {
@@ -541,6 +553,18 @@ section {
 
 /* Image */
 
+.img-con,
+.img-con2,
+.img-con3 {
+    display: none;
+    position: absolute;
+    top: -43px;
+    left: -31px;
+    width: 142px;
+    height: 87px;
+    border-radius: 10px;
+}
+
 #upload_img {
     width: 360px;
     height: 90px;
@@ -555,21 +579,21 @@ section {
     top: -22px;
     filter: alpha(opacity=0);
     opacity: 0;
-    width: 370px;
-    bottom: 0;
-    height: 100%;
-    left: -14px;
+    width: 142px;
+    height: 87px;
+    top: -43px;
+    left: -31px;
     outline: none;
     cursor: inherit;
+    z-index: 100;
 }
 
-.uploadimgText {
-    /* display: none; */
-}
+/* .uploadimgText { */
+/* display: none; */
+/* } */
 
 .uploadimg {
     display: none;
-    border: 2px solid red;
     /* position: absolute; */
     top: -23px;
     left: -15px;
@@ -602,6 +626,13 @@ section {
 
 .add_image_active {
     display: inline-block !important;
+}
+
+.logo_url {
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    resize: none;
 }
 
 .add_image_box {

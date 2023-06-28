@@ -1,6 +1,4 @@
 // profile
-
-
 jQuery(document).ready(function () {
     localStorage.clear();
     jQuery(document).on('click', '.card_fill', function () {
@@ -27,14 +25,13 @@ jQuery(document).ready(function () {
                 box.removeAttr("data-bs-toggle")
                 text.css("color", "silver")
                 jQuery("." + id).removeClass("card_fill")
-                jQuery("." + id).addClass("card_fill2")
 
                 // save
                 let text1 = jQuery("#" + label1id).text()
                 let text2 = jQuery("#" + label2id).text()
 
-                let save1 = jQuery('input[data-val1hidden="' + label1id + '"]').val(text1)
-                let save2 = jQuery('input[data-val2hidden="' + label2id + '"]').val(text2)
+                jQuery('input[data-val1hidden="' + label1id + '"]').val(text1)
+                jQuery('input[data-val2hidden="' + label2id + '"]').val(text2)
             }
         })
 
@@ -56,8 +53,8 @@ jQuery(document).ready(function () {
                     jQuery(".modal2val .modal2lab label").text(label2)
 
                     jQuery(document).on('click', c_btn, function () {
-                        let lab1id1 = jQuery(".modal2val .modal1lab input").data('id')
-                        let lab2id2 = jQuery(".modal2val .modal2lab input").data('id')
+                        jQuery(".modal2val .modal1lab input").data('id')
+                        jQuery(".modal2val .modal2lab input").data('id')
 
 
                         let val1hidden = jQuery('input[data-val1hidden="' + label1id + '"]').val()
@@ -86,7 +83,7 @@ jQuery(document).ready(function () {
 
                     if (con == undefined) {
                         let data = `
-                        <div class="social_media social_media_con ${id} mb-3" id="${id}" data-cardid="${id}" data-modal="modal3val"
+                        <div class="social_media card_fill social_media_con ${id} mb-3" id="${id}" data-cardid="${id}" data-modal="modal3val"
                             data-bs-toggle="modal" data-bs-target="#fildetail">
                             <span class="social_media_icon d-flex justify-content-center align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" style="width: 30px;"
@@ -110,35 +107,27 @@ jQuery(document).ready(function () {
                         let labid1 = jQuery(".modal3val .modal1lab input").data('id')
                         let labid2 = jQuery(".modal3val .modal2lab input").data('id')
 
-                        // let text1 = jQuery("#" + label1id).text()
-                        // let text2 = jQuery("#" + label2id).text()
-
                         let val1hidden = jQuery('input[data-val1hidden="' + label1id + '"]').val()
                         let val2hidden = jQuery('input[data-val2hidden="' + label2id + '"]').val()
 
-                        // if (text1 != val1hidden || text2 != val2hidden) {
                         jQuery("#" + label1id).text(val1hidden)
                         jQuery("#" + label2id).text(val2hidden)
-                        // }
-
-
-                        // let save1 = jQuery('input[data-val1hidden="' + label1id + '"]').val(text1)
 
                         jQuery('#' + id).hide()
 
-                        jQuery(".modal3val .modal1lab input").val(localStorage.setItem(labid1, ""));
-                        jQuery(".modal3val .modal2lab input").val(localStorage.setItem(labid2, ""));
-                        jQuery('div#' + id + " .social_media_para_con #" + labid1).text("")
-                        jQuery('div#' + id + " .social_media_para_con #" + labid2).text("")
+                        jQuery(".modal3val .modal1lab input").val(val1hidden);
+                        jQuery(".modal3val .modal2lab input").val(val2hidden);
+                        jQuery('div#' + id + " .social_media_para_con #" + labid1).text(val1hidden)
+                        jQuery('div#' + id + " .social_media_para_con #" + labid2).text(val2hidden)
                         jQuery(".social_media_con").removeAttr("id");
                         jQuery(".social_media_con").removeClass(id);
                     })
 
                 } else {
+                    jQuery("#" + label1id).parent().parent().removeClass("field_card_none")
                     jQuery(".modal1val .modal1lab input").data('id', label1id)
                     jQuery(".modal1val .modal1lab input").val(localStorage.getItem(label1id));
                     jQuery(".modal1val .modal1lab label").text(label1)
-
 
                     jQuery(document).on('click', c_btn, function () {
                         let lab01id = jQuery(".modal1val .modal1lab input").data('id')
@@ -164,6 +153,15 @@ jQuery(document).ready(function () {
 
             jQuery(document).on('click', '.social_media_con', function () {
                 let id = jQuery(this).data("cardid");
+                const c2_btn = "#" + id + "cancel_btn";
+
+
+                jQuery(".save_btn").attr('id', id + "save_btn")
+                jQuery(".cancel_btn").attr('id', id + "cancel_btn")
+                jQuery(".modal1val").css("display", "none");
+                jQuery(".modal2val").css("display", "none");
+                jQuery(".modal3val").css("display", "block");
+
                 let card_text1 = $('div[data-cardid="' + id + '"] .social_media_para_con .card_text1').attr('id')
                 let card_text2 = $('div[data-cardid="' + id + '"] .social_media_para_con .card_text2').attr('id')
 
@@ -177,11 +175,34 @@ jQuery(document).ready(function () {
                 jQuery(".modal3val .modal1lab input").data('id', card_text1)
                 jQuery(".modal3val .modal2lab input").data('id', card_text2)
 
+
+                jQuery(document).on('click', c2_btn, function () {
+                    let labid1 = jQuery(".modal3val .modal1lab input").data('id')
+                    let labid2 = jQuery(".modal3val .modal2lab input").data('id')
+
+                    let val1hidden = jQuery('input[data-val1hidden="' + label1id + '"]').val()
+                    let val2hidden = jQuery('input[data-val2hidden="' + label2id + '"]').val()
+
+                    jQuery("#" + label1id).text(val1hidden)
+                    jQuery("#" + label2id).text(val2hidden)
+
+                    jQuery('#' + id).hide()
+
+                    jQuery(".modal3val .modal1lab input").val(val1hidden);
+                    jQuery(".modal3val .modal2lab input").val(val2hidden);
+                    jQuery('div#' + id + " .social_media_para_con #" + labid1).text(val1hidden)
+                    jQuery('div#' + id + " .social_media_para_con #" + labid2).text(val2hidden)
+                    jQuery(".social_media_con").removeAttr("id");
+                    jQuery(".social_media_con").removeClass(id);
+                })
             })
-            jQuery(document).on('click', '.card_fill2', function () {
+            jQuery(document).on('click', '.card_fill', function () {
                 let id = jQuery(this).data("cardid");
-                let card_text1 = $('div[data-cardid="' + id + '"] .card-title .card_text1').attr('id')
-                let card_text2 = $('div[data-cardid="' + id + '"] .card-title .card_text2').attr('id')
+                let card_text1 = $('div[data-cardid="' + id + '"] .card_text1').attr('id')
+                let card_text2 = $('div[data-cardid="' + id + '"] .card_text2').attr('id')
+
+                let card_lab1 = $('div[data-cardid="' + id + '"] .card_text1').data('label')
+                let card_lab2 = $('div[data-cardid="' + id + '"] .card_text2').data('label')
 
                 let card_text1lab = jQuery("#" + card_text1).text()
                 let card_text2lab = jQuery("#" + card_text2).text()
@@ -191,17 +212,17 @@ jQuery(document).ready(function () {
                 jQuery(".modal2val .modal1lab input").val(card_text1lab);
                 jQuery(".modal2val .modal2lab input").val(card_text2lab);
                 // 
-                // jQuery(".modal1val .modal1lab label").text(label1);
 
-                // jQuery(".modal2val .modal1lab label").text(label1);
-                // jQuery(".modal2val .modal2lab label").text(label2);
+                jQuery(".modal1val .modal1lab label").text(card_lab1);
+
+                jQuery(".modal2val .modal1lab label").text(card_lab1);
+                jQuery(".modal2val .modal2lab label").text(card_lab2);
 
                 // 
                 jQuery(".modal1val .modal1lab input").data('id', card_text1)
 
                 jQuery(".modal2val .modal1lab input").data('id', card_text1)
                 jQuery(".modal2val .modal2lab input").data('id', card_text2)
-
             })
         });
 
@@ -248,8 +269,6 @@ jQuery(document).ready(function () {
             }
         });
 
-
-
         // if(field.val() === ''){
         // field.parent().addClass('brdr_red').removeClass('brdr_green');
         // }
@@ -257,55 +276,90 @@ jQuery(document).ready(function () {
         // field.parent().addClass('brdr_green').removeClass('brdr_red');
         // }
     });
+});
 
 
+// Add Imges
 
-    // Add Imges
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        $('.img-con').css('display', 'block')
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#uploadlogo').attr('src', e.target.result);
+            $('#company-img').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function readURL2(input) {
+    if (input.files && input.files[0]) {
+        $('.img-con2').css('display', 'block')
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#uploadlogo2').attr('src', e.target.result);
+            $('#profile-img').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function readURL3(input) {
+    if (input.files && input.files[0]) {
+        $('.img-con3').css('display', 'block')
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#uploadlogo3').attr('src', e.target.result);
+            $('#cover-img').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 
     // add and remove image_box
-    jQuery(document).on('click', '.image_box', function () {
-        let text = jQuery(this).text();
-        jQuery("#func").text(text);
-        jQuery('.add_image_box').addClass('add_image_active');
-    })
+//     jQuery(document).on('click', '.image_box', function () {
+//         let text = jQuery(this).text();
+//         jQuery("#func").text(text);
+//         jQuery('.add_image_box').addClass('add_image_active');
+//     })
 
-    $('#fileupload').on('change', function () {
-        $('.uploadimgText').hide();
-        $('.uploadimg').show();
-    });
-
-
-    jQuery(document).on('click', '.add_image_close', function () {
-        jQuery(".add_image_box").removeClass('add_image_active');
-        jQuery('.uploadimgText').css("display", "block");
-        jQuery('#uploadimg').css("display", "none");
-    })
-
-    // Add images
-    jQuery('.uploadimgText').css("display", "block");
-
-    cropper = new cropper(document.getElementById('image-cropper'), {
-        area: [340, 340],
-        crop: [250, 150],
-    })
-
-    zoom.onchange = function () {
-        document.getElementById('image-cropper').crop.zoom(this.value);
-        document.getElementById('image-cropper-result').children[0].src =
-            document.getElementById('image-cropper').crop.getCroppedImage().src;
-    }
+//     $('#fileupload').on('change', function () {
+//         $('.uploadimgText').hide();
+//         $('.uploadimg').show();
+//     });
 
 
-    jQuery(document).on('click', '.image_color_left_box', function () {
-        var color = jQuery(this).children().data('bgcolor');
-        jQuery('.image_color_left_box').removeClass('bg_active');
-        jQuery(this).addClass('bg_active');
-        jQuery('.jcrop canvas').css('background-color', color);
-        jQuery('.image_bgcolor_right').val(color);
-    })
+//     jQuery(document).on('click', '.add_image_close', function () {
+//         jQuery(".add_image_box").removeClass('add_image_active');
+//         jQuery('.uploadimgText').css("display", "block");
+//         jQuery('#uploadimg').css("display", "none");
+//     })
 
-    jQuery(document).on('change', '.image_bgcolor_right', function () {
-        var color = jQuery(this).val();
-        jQuery('.jcrop canvas').css('background-color', color);
-    })
-});
+//     // Add images
+//     jQuery('.uploadimgText').css("display", "block");
+
+//     cropper = new cropper(document.getElementById('image-cropper'), {
+//         area: [340, 340],
+//         crop: [250, 150],
+//     })
+
+//     zoom.onchange = function () {
+//         document.getElementById('image-cropper').crop.zoom(this.value);
+//         document.getElementById('image-cropper-result').children[0].src =
+//             document.getElementById('image-cropper').crop.getCroppedImage().src;
+//     }
+
+
+//     jQuery(document).on('click', '.image_color_left_box', function () {
+//         var color = jQuery(this).children().data('bgcolor');
+//         jQuery('.image_color_left_box').removeClass('bg_active');
+//         jQuery(this).addClass('bg_active');
+//         jQuery('.jcrop canvas').css('background-color', color);
+//         jQuery('.image_bgcolor_right').val(color);
+//     })
+
+//     jQuery(document).on('change', '.image_bgcolor_right', function () {
+//         var color = jQuery(this).val();
+//         jQuery('.jcrop canvas').css('background-color', color);
+//     })
+// });
